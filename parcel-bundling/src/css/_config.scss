@@ -1,0 +1,72 @@
+// media query ranges
+
+$mq_min_large_desktop: 1340px;
+$mq_min_small_desktop: 1280px;
+$mq_min_smaller_desktop: 1100px;
+$mq_min_large_tablet: 980px;
+$mq_min_small_tablet: 767px;
+$mq_min_large_phone: 530px;
+$mq_min_small_phone: 360px;
+$mq_min_smallest_phone: 330px;
+
+$mq_max_small_desktop: $mq_min_large_desktop - 1;
+$mq_max_large_tablet: $mq_min_small_desktop - 1;
+$mq_max_medium_tablet: $mq_min_large_tablet - 1;
+$mq_max_large_phone: $mq_min_small_tablet - 1;
+$mq_max_small_phone: $mq_min_large_phone - 1;
+$mq_max_smallest_phone: $mq_min_small_phone - 1;
+
+// layout dimensions
+
+$layout_max_width: 1440px;
+
+$layout_space: 3rem;
+$layout_space_tablet: 2.5rem;
+$layout_space_mobile: 1.5rem;
+
+$layout_space_inner_l: 7rem;
+$layout_space_inner_m: 5rem;
+$layout_space_inner: 3rem;
+
+// module dimensions
+
+$module_space: 1.5rem;
+$module_space_l: 2rem;
+
+$form_max_width: 26.375rem;
+
+// rounded corners
+
+$input_corner: 0.25rem;
+$button_corner: 0.25rem;
+
+// fonts
+
+$font_family_1: 'Roboto', sans-serif;
+
+// Text size
+
+$text_size_default: 1rem;
+$text_size_default_m: 0.875rem;
+
+$text_weight_default: 500;
+$text_weight_light: 400;
+
+// colors
+
+$body_background: #FAFAFA;
+$body_background_2: #FFFFFF;
+
+$color_primary: #006DFF;
+$color_primary_2: #096DD9;
+$color_primary_3: #5A9CFF;
+
+$color_secondary_1: #000000;
+$color_secondary_2: #D9D9D9;
+$color_secondary_3: #D9DBE1;
+
+$color_text_1: #969BAB;
+$color_text_2: #18191F;
+$color_text_3: #FFFFFF;
+
+$color_alert: #FF4D4F;

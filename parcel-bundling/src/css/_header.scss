@@ -1,0 +1,18 @@
+.tpv-header {
+    @include flex-container;
+    justify-content: flex-end;
+    z-index: 1;
+
+    .logo {
+        height: 30px;
+
+        @media (min-width: $mq_min_large_tablet) {
+            height: 40px;
+        }
+    }
+}
+
+.tpv-lang {
+    @include select-default;
+    background-image: url('../img/ES.svg');
+}

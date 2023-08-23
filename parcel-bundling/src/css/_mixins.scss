@@ -1,0 +1,364 @@
+// layout
+
+@mixin layout {
+    padding: 1rem $layout_space_mobile;
+    margin: 0 auto;
+    width: 100%;
+    max-width: $layout_max_width;
+    position: relative;
+
+    @media (min-width: $mq_min_small_tablet) {
+        padding: $module_space $layout_space_tablet;
+    }
+
+    @media (min-width: $mq_min_large_tablet) {
+        padding: $module_space $layout_space 3rem;
+    }
+}
+
+@mixin inner-layout {
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+
+    @media (min-width: $mq_min_large_tablet) {
+        padding: 0 $layout_space_inner;
+    }
+
+    @media (min-width: $mq_min_smaller_desktop) {
+        padding: 0 $layout_space_inner_m;
+    }
+
+    @media (min-width: $mq_min_small_desktop) {
+        padding: 0 $layout_space_inner_l;
+    }
+}
+
+@mixin flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// text
+
+@mixin text--body {
+    font-family: $font_family_1;
+    font-size: $text_size_default_m;
+    line-height: 1.5rem;
+    font-weight: $text_weight_default;
+    color: $color_text_1;
+
+    @media (min-width: $mq_min_large_phone) {
+        font-size: $text_size_default;
+        line-height: 1.5;
+    }
+}
+
+@mixin text--body-small {
+    font-size: 0.875rem;
+    color: $color_text_2;
+}
+
+@mixin text--body-tiny {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+}
+
+@mixin text--body-big {
+    font-size: 2rem;
+    color: $color_text_2;
+    line-height: 2.75rem;
+
+    @media (min-width: $mq_min_large_phone) {
+        font-size: 3rem;
+    }
+}
+
+// button
+
+@mixin button-reset {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    font-family: inherit;
+    box-shadow: none;
+    cursor: pointer;
+    //appearance: none;
+}
+
+@mixin button-default {
+    padding: 0 1rem;
+    height: 3rem;
+    background-color: $color_primary;
+    color: $color_text_3;
+    border: 1px solid $color_primary_2;
+    border-radius: $button_corner;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+@mixin button-dark {
+    background-color: $color_secondary_1;
+    margin-bottom: 0.5rem;
+    border: none;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+
+    img {
+        padding: 0 0.5rem;
+
+        &:last-of-type {
+            padding-right: 0;
+        }
+
+        &:nth-of-type(2) {
+            border-left: 1px solid $body_background_2;
+        }
+    }
+}
+
+@mixin button-img {
+    background-color: $body_background_2;
+    border: 1px solid $color_secondary_3;
+    border-radius: $button_corner;
+    height: 3rem;
+    padding: 0 0.5rem;
+    transition: all 0.3s ease;
+
+    img {
+        transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+        border: 1px solid $color_secondary_1;
+    }
+
+    &.selected {
+        border: 2px solid $color_primary;
+    }
+
+    &.success {
+        box-shadow: 0px 0px 2px $color_primary_3;
+
+        img {
+            opacity: 0.3;
+        }
+    }
+}
+
+// input
+
+@mixin input-reset {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    font-family: inherit;
+    box-shadow: none;
+    cursor: text;
+
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+@mixin select-default {
+    border: 1px solid $color_secondary_2;
+    padding: 0 1.75rem 0 .75rem;
+    height: 1.5rem;
+    font-size: 0.75rem;
+    line-height: 1;
+    font-weight: $text_weight_light;
+    color: $color_secondary_1;
+    background-color: $body_background_2;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px) center;
+    background-size: 1rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border: 1px solid $color_text_2;
+    }
+
+    &:focus-visible {
+        outline: none;
+    }
+
+    @media (min-width: $mq_min_large_tablet) {
+        padding: 0 2rem 0 .75rem;
+        height: 2rem;
+        font-size: 0.875rem;
+        background-position: calc(100% - 20px) center;
+        background-size: 1.25rem;
+    }
+}
+
+@mixin input-default {
+    border: 1px solid $color_secondary_2;
+    border-radius: $button_corner;
+    padding: 0 1rem 0 3.25rem;
+    height: 3rem;
+    font-size: 0.875rem;
+    line-height: 1;
+    font-weight: $text_weight_light;
+    color: $color_secondary_1;
+    background-color: $body_background_2;
+    background-repeat: no-repeat;
+    background-position: 0.75rem center;
+
+    &:hover {
+        border: 1px solid $color_text_2;
+    }
+
+    &::placeholder {
+        color: $color_text_1;
+        font-family: $font_family_1;
+    }
+
+    @media (min-width: $mq_min_large_tablet) {
+        padding: 0 1rem 0 3.5rem;
+    }
+}
+
+// extra
+
+@mixin bg-layer {
+    position: absolute;
+    z-index: 0;
+    width: calc($layout_space_inner * 2 + $layout_space + $form_max_width);
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: $body_background;
+
+    @media (min-width: $mq_min_smaller_desktop) {
+        width: calc($layout_space_inner_m * 2 + $layout_space + $form_max_width);
+    }
+
+    @media (min-width: $mq_min_small_desktop) {
+        width: calc($layout_space_inner_l * 2 + $layout_space + $form_max_width);
+    }
+
+    @media (min-width: $layout_max_width) {
+        width: calc($layout_space_inner_l * 2 + $layout_space + $form_max_width + ((100vw - $layout_max_width) / 2));
+    }
+}
+
+@mixin lines-separator {
+    text-align: center;
+    @include flex-container;
+
+    &:before,
+    &:after {
+        content: '';
+        flex-grow: 1;
+        height: 1px;
+        background-color: $color_secondary_3;
+    }
+
+    &:before {
+        margin-right: 1.5rem;
+    }
+
+    &:after {
+        margin-left: 1.5rem;
+    }
+}
+
+// animations 
+
+@mixin loading-dots {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        display: block;
+        width: 8px;
+        height: 8px;
+        margin: 0 5px;
+        background: $body_background_2;
+        border-radius: 100%;
+        transition: all 300ms ease;
+        transform-origin: center;
+    }
+
+    $i: 4;
+    $z: 5;
+
+    @while 0 < $i {
+        .dot-#{$i} {
+            animation: pulse#{$i} .8s ease-out alternate infinite #{calc(($z * 2) / 10)}s;
+        }
+        $i: $i - 1;
+    }
+}
+
+@mixin loading-circle {
+    $loader-size: 32px;
+    $animation-length: 3s;
+    $size: 5px;
+
+    position: absolute;
+    width: $loader-size;
+    height: $loader-size;
+    margin: auto;
+
+    .circle {
+        width: 100%;
+        height: 100%;
+        animation: spin $animation-length linear infinite;
+    }
+
+    .dot {
+        position: absolute;
+        display: block;
+        width: $size;
+        height: $size;
+        border-radius: 100%;
+        background-color: $color_primary;
+        animation: fade-in-out $animation-length linear infinite;
+    }
+
+    $points: 12;
+    $slice: calc(2 * pi() / $points);
+    $radius: calc($loader-size / 2) - calc($size / 2);
+    $centerX: calc($loader-size / 2) - calc($size / 2);
+    $centerY: calc($loader-size / 2) - calc($size / 2);
+    @for $i from 0 through ($points - 1) {
+        $angle: $slice * $i;
+        $x: $centerX + ($radius * cos($angle));
+        $y: $centerY + ($radius * sin($angle));
+        .dot:nth-child(#{$i + 1}) { 
+            top: round($y);
+            left: round($x);
+            animation-delay: $i * calc($animation-length / $points);
+        }
+    }
+}

@@ -1,0 +1,260 @@
+.tpv-order {
+    @include inner-layout;
+    margin-top: $module_space;
+    flex-grow: 1;
+
+    @media (min-width: $mq_min_large_tablet) {
+        @include flex-container;
+        align-items: flex-start;
+        margin-top: 68px;
+    }
+
+    &__info {
+        max-width: $form_max_width;
+        text-align: center;
+        margin: 0 auto;
+
+        span {
+            color: $color_text_2;
+        }
+
+        @media (min-width: $mq_min_large_tablet) {
+            text-align: left;
+        }
+    }
+
+    &__money {
+        @include text--body-big;
+        margin-bottom: 0.5rem;
+
+        @media (min-width: $mq_min_large_phone) {
+            margin-top: 0.5rem;
+            margin-bottom: $module_space;
+        }
+    }
+
+    &__payment {
+        @include text--body-small;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: $module_space;
+
+        @media (min-width: $mq_min_large_tablet) {
+            padding-left: calc($layout_space_inner * 2);
+        }
+
+        @media (min-width: $mq_min_smaller_desktop) {
+            padding-left: calc($layout_space_inner_m * 2);
+        }
+
+        @media (min-width: $mq_min_small_desktop) {
+            padding-left: calc($layout_space_inner_l * 2);
+        }
+
+        .separator {
+            @include lines-separator;
+            margin: $module_space 0;
+
+            @media (min-width: $mq_min_large_tablet) {
+                margin: $module_space_l 0;
+            }
+        }
+
+        .logo {
+            margin-top: $module_space;
+        }
+    }
+}
+
+.tpv-form {
+    max-width: $form_max_width;
+
+    @media (min-width: $mq_min_large_tablet) {
+        width: $form_max_width;
+    }
+
+    &__input {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            @include flex-container;
+        }
+
+        .input-wrapper {
+            @include flex-container;
+            @include input-default;
+            width: 100%;
+            margin-top: 0.5rem;
+            background-image: url('../img/card-default.svg');
+            box-shadow: none;
+            transition: all 0.3s ease;
+
+            .date-separator {
+                color: $color_text_1;
+            }
+
+            &.selected,
+            &.focus {
+                border: 2px solid $color_primary;
+
+                ::placeholder,
+                span {
+                    color: $color_secondary_2;
+                }
+            }
+
+            &.focus {
+                box-shadow: 0px 0px 2px $color_primary_3;
+            }
+
+            &.focus-card-month,
+            &.focus-card-year {
+                background-image: url('../img/card-date.svg');
+
+                .date-separator {
+                    color: $color_secondary_1;
+                }
+            }
+
+            &.focus-card-cvc {
+                background-image: url('../img/card-cvc.svg');
+            }
+
+            &.filled {
+                background-image: url('../img/card-date.svg');
+
+                &:hover {
+                    border: 2px solid $color_text_2;
+                }
+            }
+        }
+
+        input {
+            @include input-reset;
+
+            &#card-number {
+                width: 60%;
+            }
+
+            &#card-month {
+                width: 10%;
+                text-align: right;
+            }
+
+            &#card-year {
+                width: 10%;
+            }
+
+            &#card-cvc {
+                width: 20%;
+                text-align: right;
+            }
+        }
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus, 
+        input:-webkit-autofill:active{
+            -webkit-box-shadow: 0 0 0 30px white inset !important;
+            box-shadow: 0 0 0 30px white inset !important;
+        }
+
+        .input-error {
+            margin-top: 0.25rem;
+            font-size: 0.6875rem;
+            line-height: 0.75rem;
+            color: $color_alert;
+            font-weight: $text_weight_light;
+        }
+
+        &.card-error,
+        &.card-error-date,
+        &.card-error-cvc {
+            .input-wrapper {
+                border: 2px solid $color_alert;
+                box-shadow: none;
+            }
+        }
+
+        &.card-error {
+            .input-wrapper  {
+                background-image: url('../img/card-error.svg');
+            }
+
+            #card-number {
+                color: $color_alert;
+            }
+        }
+
+        &.card-error-date {
+            .input-wrapper  {
+                background-image: url('../img/card-error.svg');
+            }
+
+            #card-month,
+            #card-year,
+            .date-separator {
+                color: $color_alert;
+            }
+        }
+
+        &.card-error-cvc {
+            .input-wrapper  {
+                background-image: url('../img/card-error-cvc.svg');
+            }
+
+            #card-cvc {
+                color: $color_alert;
+            }
+        }
+    }
+
+    &__pay {
+
+        &-buttons {
+            margin-top: 0.5rem;
+
+            .button {
+                width: 100%;
+
+                &:first-of-type {
+                    margin-bottom: $module_space;
+
+                    @media (min-width: $mq_min_large_tablet) {
+                        margin-bottom: $module_space_l;
+                    }
+                }
+
+                .loading-dots {
+                    @include loading-dots;
+                }
+            }
+        }
+
+        &-alt {
+            @include flex-container;
+            gap: 1rem;
+
+            @media (min-width: $mq_min_large_tablet) {
+                gap: 1.5rem;
+            }
+
+            .alt-method {
+                text-align: center;
+                flex-grow: 1;
+
+                .button {
+                    width: 100%;
+                    margin-bottom: 0.25rem;
+
+                    .loading-circle {
+                        @include loading-circle;
+                    }
+                }
+            }
+        }
+    }
+}

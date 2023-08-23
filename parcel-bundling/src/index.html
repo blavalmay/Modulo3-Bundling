@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Title -->
+  <title>Paycomet test</title>
+</head>
+
+<body class="tpv">
+  <div class="wrapper">
+    <!-- Header -->
+    <header class="tpv-header">
+      <select name="language" class="tpv-lang">
+        <option value="ES" selected>Español</option>
+        <option value="EN">Inglés</option>
+      </select>
+    </header>
+    <!-- TPV Section -->
+    <section class="tpv-order">
+      <div class="tpv-order__info">
+        <p>Importe del pedido</p>
+        <p class="tpv-order__money">100.00 €</p>
+        <p>El comercio <span class="tpv-order__bank">Bankstore</span> solicita una operación con referencia <span
+            class="tpv-order__ref">#20220616123806</span></p>
+      </div>
+      <div class="tpv-order__payment">
+        <form action="#" class="tpv-form">
+          <div class="tpv-form__input">
+            <label for="card-number">
+              <span>Datos de la tarjeta</span>
+              <img src="./img/card-flags.svg" alt="Cards">
+            </label>
+            <div class="input-wrapper">
+              <input type="tel" id="card-number" name="card-number" placeholder="Número de tarjeta" maxlength="16"/>
+              <input type="tel" id="card-month" name="card-month" placeholder="MM" maxlength="2"/>
+              <span class="date-separator">/</span>
+              <input type="tel" id="card-year" name="card-year" placeholder="AA" maxlength="2"/>
+              <input type="tel" id="card-cvc" name="card-cvc" placeholder="CVC" maxlength="3"/>
+            </div>
+          </div>
+          <div class="tpv-form__pay-buttons">
+            <button class="button button--primary">Pagar con tarjeta 100.00€</button>
+            <button class="button button--dark">Pagar con <img src="./img/Googlepay.svg" alt=""></button>
+            <button class="button button--dark">Pagar con <img src="./img/Applepay.svg" alt=""></button>
+            <button class="button button--dark">Pagar con <img src="./img/clicktopay.svg" alt=""><img
+                src="./img/g13.svg" alt=""></button>
+          </div>
+          <div class="separator">O paga con otro método alternativo</div>
+          <ul class="tpv-form__pay-alt">
+            <li class="alt-method">
+              <button class="button button--img"><img src="./img/PayPal.svg" alt="Paypal"></button>
+              <p>Paypal</p>
+            </li>
+            <li class="alt-method">
+              <button class="button button--img"><img src="./img/Klarna.svg" alt="Klarna"></button>
+              <p>Klarna</p>
+            </li>
+            <li class="alt-method">
+              <button class="button button--img"><img src="./img/Bizum.svg" alt="Bizum"></button>
+              <p>Bizum</p>
+            </li>
+            <li class="alt-method">
+              <button class="button button--img"><img src="./img/Skrill.svg" alt="Skrill"></button>
+              <p>Skrill</p>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="tpv-footer">
+      <p>77976556b - Jhon Doe</p>
+      <p>Dirección: Calle Inventada - 08080 Barcelona</p>
+      <p>Teléfono: 666666666 - Email: usuario@proveedor.com</p>
+      <ul class="tpv-footer__links">
+        <li class="footer-link"><a href="#">Enlace 1</a></li>
+        <li class="footer-link"><a href="#">Enlace 2</a></li>
+        <li class="footer-link"><a href="#">Enlace 3</a></li>
+      </ul>
+    </footer>
+  </div>
+
+  <script type="module" src="./index.js"></script>
+</body>
+</html>

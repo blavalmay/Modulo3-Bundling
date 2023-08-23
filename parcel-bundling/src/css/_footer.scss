@@ -1,0 +1,30 @@
+.tpv-footer {
+    @include inner-layout;
+    @include text--body-tiny;
+    margin-top: $module_space;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    
+    @media (min-width: $mq_min_large_tablet) {
+        text-align: left;
+    }
+
+    &__links {
+        @include flex-container;
+        justify-content: center;
+        margin-top: 0.5rem;
+
+        @media (min-width: $mq_min_large_tablet) {
+            justify-content: flex-start;
+        }
+
+        .footer-link {
+            margin-right: 0.75rem;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+    }
+}

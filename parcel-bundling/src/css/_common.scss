@@ -1,0 +1,167 @@
+body {
+    @include text--body;
+    background-color: $body_background;
+    position: relative;
+
+    @media (min-width: $mq_min_large_tablet) {
+        background-color: $body_background_2;
+
+        &:after {
+            content: '';
+            @include bg-layer;
+        }
+    }
+}
+
+.wrapper {
+    @include layout;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    @include button-reset;
+
+    &.button--primary {
+        @include button-default;
+    }
+
+    &.button--dark {
+        @include button-default;
+        @include button-dark;
+    }
+
+    &.button--img {
+        @include button-img;
+    }
+}
+
+input,
+select {
+    @include button-reset;
+}
+
+$a: 4;
+$b: 1;
+
+@while 0 < $a {
+    @keyframes pulse#{$a} {
+        0% {
+            opacity: #{calc($b / 10)};
+        }
+
+        100% {
+            opacity: #{calc(($b + 3) / 10)};
+        }
+    }
+
+    $a: $a - 1;
+    $b: $b+2;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 0.8;
+    }
+
+    25% {
+        opacity: 0.2;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.8;
+    }
+}
+
+/* funciones trigonométricas */
+
+/* power */
+@function pow($number, $exp) {
+    $value: 1;
+
+    @if $exp>0 {
+        @for $i from 1 through $exp {
+            $value: $value * $number;
+        }
+    }
+
+    @else if $exp < 0 {
+        @for $i from 1 through -$exp {
+            $value: $value / $number;
+        }
+    }
+
+    @return $value;
+}
+
+/* factorial */
+@function fact($number) {
+    $value: 1;
+
+    @if $number>0 {
+        @for $i from 1 through $number {
+            $value: $value * $i;
+        }
+    }
+
+    @return $value;
+}
+
+/* pi */
+@function pi() {
+    @return 3.1415926535897932384626433832795028841971694;
+}
+
+/* radian */
+@function rad($angle) {
+    $unit: unit($angle);
+    $unitless: calc($angle / ($angle * 0 + 1));
+
+    // If the angle has 'deg' as unit, convert to radians.
+    @if $unit==deg {
+        $unitless: calc($unitless / 180 * pi());
+    }
+
+    @return $unitless;
+}
+
+/* sine */
+@function sin($angle) {
+    $sin: 0;
+    $angle: rad($angle);
+
+    // Iterate a bunch of times.
+    @for $i from 0 through 10 {
+        $sin: $sin + calc(pow(-1, $i) * pow($angle, (2 * $i + 1)) / fact(2 * $i + 1));
+    }
+
+    @return $sin;
+}
+
+/* cos */
+@function cos($angle) {
+    $cos: 0;
+    $angle: rad($angle);
+
+    // Iterate a bunch of times.
+    @for $i from 0 through 10 {
+        $cos: $cos + calc(pow(-1, $i) * pow($angle, 2 * $i) / fact(2 * $i));
+    }
+
+    @return $cos;
+}
